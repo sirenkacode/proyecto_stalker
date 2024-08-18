@@ -1,0 +1,184 @@
+/* styles.css */
+
+/* Estilo global */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #fbc2eb, #a6c1ee); /* Gradiente pastel de lila a salmón */
+    color: #000000; /* Texto en color negro */
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Estilo del formulario de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente para el login */
+}
+
+.login-box {
+    background-color: #ffffff; /* Fondo blanco para la ventana de login */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); /* Sombra de ventana */
+    text-align: center;
+}
+
+.perfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Estilo del escritorio */
+#escritorio {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#barra-inicio {
+    background: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: 2px solid #000;
+}
+
+#boton-inicio {
+    background: #555;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 10px; /* Botón alineado a la izquierda */
+}
+
+.iconos {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.icono {
+    width: 48px; /* Tamaño de los iconos */
+    text-align: center;
+    margin: 20px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icono img {
+    width: 48px; /* Tamaño de los iconos */
+    height: 48px; /* Tamaño de los iconos */
+    margin-bottom: 5px;
+}
+
+.icono p {
+    font-size: 14px; /* Tamaño del texto debajo del icono */
+    margin: 0;
+}
+
+/* Estilo de las ventanas emergentes */
+.window {
+    position: absolute;
+    border: 2px solid #000;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    width: 60vw; /* Ajusta el ancho de la ventana */
+    height: 60vh; /* Ajusta la altura de la ventana */
+    top: 20%;
+    left: 20%;
+    z-index: 2;
+}
+
+.window-header {
+    background: #0078d7;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #000;
+}
+
+.window-header h2 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.window-header .close {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.window-header .close:hover {
+    background: darkred;
+}
+
+.window-content {
+    padding: 10px;
+    overflow-y: auto;
+}

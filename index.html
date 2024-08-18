@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Escritorio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Formulario de Login -->
+    <div id="login" class="login-container">
+        <div class="login-box">
+            <img src="perfil.jpg" alt="Perfil" class="perfil">
+            <h2>Iniciar sesión</h2>
+            <input type="password" id="password" placeholder="Contraseña">
+            <button onclick="checkPassword()">Ingresar</button>
+            <p id="error-message" class="hidden">Contraseña incorrecta</p>
+        </div>
+    </div>
+    
+    <!-- Escritorio -->
+    <div id="escritorio" class="hidden">
+        <div id="barra-inicio">
+            <button id="boton-inicio">Inicio</button>
+        </div>
+        <div class="iconos">
+            <div class="icono mi-pc" onclick="openWindow('mi-pc-window')">
+                <img src="mi-pc.png" alt="Mi PC">
+                <p>Mi PC</p>
+            </div>
+            <div class="icono papeles" onclick="openWindow('papeles-window')">
+                <img src="papeles.png" alt="Papeles">
+                <p>Papeles</p>
+            </div>
+            <div class="icono explorador" onclick="openWindow('explorador-window')">
+                <img src="explorador.png" alt="Explorador">
+                <p>Explorador</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ventana de Mi PC -->
+    <div id="mi-pc-window" class="window hidden">
+        <div class="window-header">
+            <h2>Mi PC</h2>
+            <button class="close" onclick="closeWindow('mi-pc-window')">X</button>
+        </div>
+        <div class="window-content">
+            <p>Contenido de Mi PC...</p>
+        </div>
+    </div>
+
+    <!-- Ventana de Papeles -->
+    <div id="papeles-window" class="window hidden">
+        <div class="window-header">
+            <h2>Papeles</h2>
+            <button class="close" onclick="closeWindow('papeles-window')">X</button>
+        </div>
+        <div class="window-content">
+            <p>Contenido de Papeles...</p>
+        </div>
+    </div>
+
+    <!-- Ventana de Explorador -->
+    <div id="explorador-window" class="window hidden">
+        <div class="window-header">
+            <h2>Explorador</h2>
+            <button class="close" onclick="closeWindow('explorador-window')">X</button>
+        </div>
+        <div class="window-content">
+            <p>Contenido de Explorador...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
