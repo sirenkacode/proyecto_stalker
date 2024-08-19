@@ -61,16 +61,52 @@
         </div>
     </div>
 
-    <!-- Ventana de Explorador -->
-    <div id="explorador-window" class="window hidden">
-        <div class="window-header">
-            <h2>Explorador</h2>
-            <button class="close" onclick="closeWindow('explorador-window')">X</button>
+   <!-- Ventana de Explorador -->
+<div id="explorador-window" class="window hidden">
+    <div class="window-header">
+        <h2>Fotoblog</h2>
+        <button class="close" onclick="closeWindow('explorador-window')">X</button>
+    </div>
+    <div class="window-content fotolog">
+        <div class="sidebar left-sidebar">
+            <!-- Contenido de la barra lateral izquierda -->
+            <p>Enlaces Laterales</p>
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
         </div>
-        <div class="window-content">
-            <p>Contenido de Explorador...</p>
+        <div class="main-content">
+            <!-- Columna central más ancha -->
+            <h2>A este mundo le hace falta alassss ˚₊‧꒰ა❤︎໒꒱ ‧₊</h2>
+            <img src="mifoto.jpg" alt="Mi Foto" class="fotolog-photo">
+            <p class="description">Esta foto me la sacó mi mamá hace unos 3 años. El fleco ya no existe, pero me encanta! Deberia volver a hacerme fleco?</p>
+            <div class="comment-book">
+                <h3>Libro de Comentarios</h3>
+                <ul class="comments">
+                    <li>Usuario1: ¡Gran foto!</li>
+                    <li>Usuario2: Me encanta el lugar.</li>
+                    <li>Usuario3: ¡Qué bonitos recuerdos!</li>
+                </ul>
+                <form>
+                    <input type="text" placeholder="Escribe un comentario..." class="comment-input">
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+        <div class="sidebar right-sidebar">
+            <!-- Contenido de la barra lateral derecha -->
+            <p>Amigos</p>
+            <ul>
+                <li><a href="#">Amigo 1</a></li>
+                <li><a href="#">Amigo 2</a></li>
+                <li><a href="#">Amigo 3</a></li>
+            </ul>
         </div>
     </div>
+</div>
+
 
     <script src="script.js"></script>
 </body>
