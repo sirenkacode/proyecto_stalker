@@ -36,6 +36,18 @@
                 <img src="explorador.png" alt="Explorador">
                 <p>Explorador</p>
             </div>
+            <!-- Icono de Mensajes -->
+            <div class="icono mensajes" onclick="openWindow('mensajes-window')">
+                <img src="mensajes.png" alt="Mensajes">
+                <p>Mensajes</p>
+            </div>
+
+            <!-- Icono del Reproductor de Música -->
+            <div class="icono reproductor" onclick="openWindow('reproductor-window')">
+                <img src="winamp.png" alt="Reproductor">
+                <p>Reproductor</p>
+            </div>
+
         </div>
     </div>
 
@@ -72,11 +84,22 @@
             <!-- Contenido de la barra lateral izquierda -->
             <p>Enlaces Laterales</p>
             <ul>
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
+                <li>
+                    <img src="foto3.png" alt="Miniatura 3" class="thumbnail">
+                    <p class="date">15/09/2006</p>
+                </li>
+                <li>
+                    <img src="foto2.png" alt="Miniatura 2" class="thumbnail">
+                    <p class="date">28/07/2006</p>
+                </li>
+                <li>
+                    <img src="foto1.png" alt="Miniatura 1" class="thumbnail">
+                    <p class="date">12/03/2006</p>
+                </li>
             </ul>
         </div>
+        
+        
         <div class="main-content">
             <!-- Columna central más ancha -->
             <h2>A este mundo le hace falta alassss ˚₊‧꒰ა❤︎໒꒱ ‧₊</h2>
@@ -104,6 +127,28 @@
                 <li><a href="#">Amigo 3</a></li>
             </ul>
         </div>
+    </div>
+</div>
+
+<!-- Ventana de Mensajes -->
+<div id="mensajes-window" class="window hidden">
+    <div class="window-header">
+        <h2>Mensajes</h2>
+        <button class="close" onclick="closeWindow('mensajes-window')">X</button>
+    </div>
+    <div class="window-content">
+        <p>Contenido de Mensajes...</p>
+    </div>
+</div>
+
+<!-- Ventana del Reproductor de Música -->
+<div id="reproductor-window" class="window hidden">
+    <div class="window-header">
+        <h2>Reproductor de Música</h2>
+        <button class="close" onclick="closeWindow('reproductor-window')">X</button>
+    </div>
+    <div class="window-content">
+        <p>Contenido del Reproductor...</p>
     </div>
 </div>
 
