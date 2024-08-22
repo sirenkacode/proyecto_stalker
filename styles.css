@@ -144,6 +144,24 @@ button:hover {
 
 
 /* Estilo de las ventanas emergentes */
+.window {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    width: 60vw;
+    height: 60vh;
+    top: 20%;
+    left: 20%;
+    z-index: 2;
+    position: absolute; /* Asegura la posición relativa para el movimiento */
+}
+
+
+
+/* Estilo para la barra de título de la ventana */
 .window-header {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
@@ -159,19 +177,31 @@ button:hover {
     pointer-events: auto; /* Asegura que los eventos de ratón funcionen */
 }
 
-.window {
+.window-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.window-controls button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.window-controls button:hover {
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    overflow: hidden;
-    width: 60vw;
-    height: 60vh;
-    top: 20%;
-    left: 20%;
-    z-index: 2;
-    position: absolute; /* Asegura la posición relativa para el movimiento */
+}
+
+.window.maximized {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    border-radius: 0;
+    border: none;
 }
 
 
