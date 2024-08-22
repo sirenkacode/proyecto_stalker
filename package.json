@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "electron": "^32.0.0"
+  },
+  "name": "proyecto_stalker",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sirenkacode/proyecto_stalker.git"
+  },
+  "author": "Micaela Alvariza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sirenkacode/proyecto_stalker/issues"
+  },
+  "homepage": "https://github.com/sirenkacode/proyecto_stalker#readme",
+  "description": ""
+}
