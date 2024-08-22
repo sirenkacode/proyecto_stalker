@@ -25,14 +25,13 @@ function makeDraggable(element) {
     let offsetX, offsetY;
 
     const header = element.querySelector('.window-header');
-    let zIndexCounter = 10; // Inicialización del z-index
+    let zIndexCounter = 10;
 
     header.onmousedown = function(e) {
         isDragging = true;
         offsetX = e.clientX - element.getBoundingClientRect().left;
         offsetY = e.clientY - element.getBoundingClientRect().top;
 
-        // Incrementa el z-index al hacer clic en la barra de la ventana
         zIndexCounter++;
         element.style.zIndex = zIndexCounter;
 
@@ -53,6 +52,7 @@ function makeDraggable(element) {
         return false;
     };
 }
+
 
 // Inicializar el arrastre y la superposición en todas las ventanas
 const windows = document.querySelectorAll('.window');
