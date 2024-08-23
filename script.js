@@ -96,8 +96,8 @@ function updateTaskbar() {
 document.querySelectorAll('.window').forEach(windowElement => {
     let offsetX, offsetY;
 
-    // Cuando se presiona el ratón sobre la ventana
-    windowElement.querySelector('.window-header').addEventListener('mousedown', (e) => {
+    // Aplica el evento a toda la ventana en lugar de solo a la barra de título
+    windowElement.addEventListener('mousedown', (e) => {
         bringToFront(windowElement);
         offsetX = e.clientX - windowElement.getBoundingClientRect().left;
         offsetY = e.clientY - windowElement.getBoundingClientRect().top;
