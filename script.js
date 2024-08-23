@@ -160,3 +160,4 @@ document.querySelectorAll('.window').forEach(windowElement => {
         }
     });
 });
+
