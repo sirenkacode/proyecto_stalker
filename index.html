@@ -24,159 +24,143 @@
             <button id="boton-inicio">Inicio</button>
         </div>
         <div class="iconos">
-            <div class="icono mi-pc" onclick="openWindow('mi-pc-window')">
+            <div class="icono mi-pc" onclick="openWindow('mi-pc')">
                 <img src="mi-pc.png" alt="Mi PC">
                 <p>Mi PC</p>
             </div>
-            <div class="icono papeles" onclick="openWindow('papeles-window')">
+            <div class="icono papeles" onclick="openWindow('papeles')">
                 <img src="papeles.png" alt="Papeles">
                 <p>Papeles</p>
             </div>
-            <div class="icono explorador" onclick="openWindow('explorador-window')">
+            <div class="icono explorador" onclick="openWindow('explorador')">
                 <img src="explorador.png" alt="Explorador">
                 <p>Explorador</p>
             </div>
-            <!-- Icono de Mensajes -->
-            <div class="icono mensajes" onclick="openWindow('mensajes-window')">
+            <div class="icono mensajes" onclick="openWindow('mensajes')">
                 <img src="mensajes.png" alt="Mensajes">
                 <p>Mensajes</p>
             </div>
-
-            <!-- Icono del Reproductor de Música -->
-            <div class="icono reproductor" onclick="openWindow('reproductor-window')">
+            <div class="icono reproductor" onclick="openWindow('reproductor')">
                 <img src="winamp.png" alt="Reproductor">
                 <p>Reproductor</p>
             </div>
-
         </div>
     </div>
 
-    <!-- Ventana de Mi PC -->
-    <div id="mi-pc-window" class="window hidden">
+    <!-- Ventanas -->
+    <div id="mi-pc" class="window hidden" data-title="Mi PC">
         <div class="window-header">
             <h2>Mi PC</h2>
             <div class="window-controls">
-                <button class="minimize" onclick="minimizeWindow('mi-pc-window')">_</button>
-                <button class="maximize" onclick="toggleMaximizeWindow('mi-pc-window')">[]</button>
-                <button class="close" onclick="closeWindow('mi-pc-window')">X</button>
+                <button class="minimize" onclick="minimizeWindow('mi-pc')">_</button>
+                <button class="maximize" onclick="toggleMaximizeWindow('mi-pc')">[]</button>
+                <button class="close" onclick="closeWindow('mi-pc')">X</button>
             </div>
-          
         </div>
         <div class="window-content">
             <p>Contenido de Mi PC...</p>
         </div>
     </div>
 
-    <!-- Ventana de Papeles -->
-    <div id="papeles-window" class="window hidden">
+    <div id="papeles" class="window hidden" data-title="Papeles">
         <div class="window-header">
             <h2>Papeles</h2>
             <div class="window-controls">
-                <button class="minimize" onclick="minimizeWindow('mi-pc-window')">_</button>
-                <button class="maximize" onclick="toggleMaximizeWindow('mi-pc-window')">[]</button>
-                <button class="close" onclick="closeWindow('mi-pc-window')">X</button>
+                <button class="minimize" onclick="minimizeWindow('papeles')">_</button>
+                <button class="maximize" onclick="toggleMaximizeWindow('papeles')">[]</button>
+                <button class="close" onclick="closeWindow('papeles')">X</button>
             </div>
-          
         </div>
         <div class="window-content">
             <p>Contenido de Papeles...</p>
         </div>
     </div>
 
-   <!-- Ventana de Explorador -->
-<div id="explorador-window" class="window hidden">
-    <div class="window-header">
-        <h2>Fotoblog</h2>
-        <div class="window-controls">
-            <button class="minimize" onclick="minimizeWindow('mi-pc-window')">_</button>
-            <button class="maximize" onclick="toggleMaximizeWindow('mi-pc-window')">[]</button>
-            <button class="close" onclick="closeWindow('mi-pc-window')">X</button>
-        </div>
-  
-    </div>
-    <div class="window-content fotolog">
-        <div class="sidebar left-sidebar">
-            <!-- Contenido de la barra lateral izquierda -->
-            <p>Enlaces Laterales</p>
-            <ul>
-                <li>
-                    <img src="foto3.png" alt="Miniatura 3" class="thumbnail">
-                    <p class="date">15/09/2006</p>
-                </li>
-                <li>
-                    <img src="foto2.png" alt="Miniatura 2" class="thumbnail">
-                    <p class="date">28/07/2006</p>
-                </li>
-                <li>
-                    <img src="foto1.png" alt="Miniatura 1" class="thumbnail">
-                    <p class="date">12/03/2006</p>
-                </li>
-            </ul>
-        </div>
-        
-        
-        <div class="main-content">
-            <!-- Columna central más ancha -->
-            <h2>A este mundo le hace falta alassss ˚₊‧꒰ა❤︎໒꒱ ‧₊</h2>
-            <img src="mifoto.jpg" alt="Mi Foto" class="fotolog-photo">
-            <p class="description">Esta foto me la sacó mi mamá hace unos 3 años. El fleco ya no existe, pero me encanta! Deberia volver a hacerme fleco?</p>
-            <div class="comment-book">
-                <h3>Libro de Comentarios</h3>
-                <ul class="comments">
-                    <li>Usuario1: ¡Gran foto!</li>
-                    <li>Usuario2: Me encanta el lugar.</li>
-                    <li>Usuario3: ¡Qué bonitos recuerdos!</li>
-                </ul>
-                <form>
-                    <input type="text" placeholder="Escribe un comentario..." class="comment-input">
-                    <button type="submit">Enviar</button>
-                </form>
+    <div id="explorador" class="window hidden" data-title="Explorador">
+        <div class="window-header">
+            <h2>Explorador</h2>
+            <div class="window-controls">
+                <button class="minimize" onclick="minimizeWindow('explorador')">_</button>
+                <button class="maximize" onclick="toggleMaximizeWindow('explorador')">[]</button>
+                <button class="close" onclick="closeWindow('explorador')">X</button>
             </div>
         </div>
-        <div class="sidebar right-sidebar">
-            <!-- Contenido de la barra lateral derecha -->
-            <p>Amigos</p>
-            <ul>
-                <li><a href="#">Amigo 1</a></li>
-                <li><a href="#">Amigo 2</a></li>
-                <li><a href="#">Amigo 3</a></li>
-            </ul>
+        <div class="window-content fotolog">
+            <div class="sidebar left-sidebar">
+                <!-- Contenido de la barra lateral izquierda -->
+                <p>Enlaces Laterales</p>
+                <ul>
+                    <li>
+                        <img src="foto3.png" alt="Miniatura 3" class="thumbnail">
+                        <p class="date">15/09/2006</p>
+                    </li>
+                    <li>
+                        <img src="foto2.png" alt="Miniatura 2" class="thumbnail">
+                        <p class="date">28/07/2006</p>
+                    </li>
+                    <li>
+                        <img src="foto1.png" alt="Miniatura 1" class="thumbnail">
+                        <p class="date">12/03/2006</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <!-- Columna central más ancha -->
+                <h2>A este mundo le hace falta alassss ˚₊‧꒰ა❤︎໒꒱ ‧₊</h2>
+                <img src="mifoto.jpg" alt="Mi Foto" class="fotolog-photo">
+                <p class="description">Esta foto me la sacó mi mamá hace unos 3 años. El fleco ya no existe, pero me encanta! Deberia volver a hacerme fleco?</p>
+                <div class="comment-book">
+                    <h3>Libro de Comentarios</h3>
+                    <ul class="comments">
+                        <li>Usuario1: ¡Gran foto!</li>
+                        <li>Usuario2: Me encanta el lugar.</li>
+                        <li>Usuario3: ¡Qué bonitos recuerdos!</li>
+                    </ul>
+                    <form>
+                        <input type="text" placeholder="Escribe un comentario..." class="comment-input">
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="sidebar right-sidebar">
+                <!-- Contenido de la barra lateral derecha -->
+                <p>Amigos</p>
+                <ul>
+                    <li><a href="#">Amigo 1</a></li>
+                    <li><a href="#">Amigo 2</a></li>
+                    <li><a href="#">Amigo 3</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Ventana de Mensajes -->
-<div id="mensajes-window" class="window hidden">
-    <div class="window-header">
-        <h2>Mensajes</h2>
-        <div class="window-controls">
-            <button class="minimize" onclick="minimizeWindow('mi-pc-window')">_</button>
-            <button class="maximize" onclick="toggleMaximizeWindow('mi-pc-window')">[]</button>
-            <button class="close" onclick="closeWindow('mi-pc-window')">X</button>
+    <div id="mensajes" class="window hidden" data-title="Mensajes">
+        <div class="window-header">
+            <h2>Mensajes</h2>
+            <div class="window-controls">
+                <button class="minimize" onclick="minimizeWindow('mensajes')">_</button>
+                <button class="maximize" onclick="toggleMaximizeWindow('mensajes')">[]</button>
+                <button class="close" onclick="closeWindow('mensajes')">X</button>
+            </div>
         </div>
-        
-    </div>
-    <div class="window-content">
-        <p>Contenido de Mensajes...</p>
-    </div>
-</div>
-
-<!-- Ventana del Reproductor de Música -->
-<div id="reproductor-window" class="window hidden">
-    <div class="window-header">
-        <h2>Reproductor de Música</h2>
-        <div class="window-controls">
-            <button class="minimize" onclick="minimizeWindow('mi-pc-window')">_</button>
-            <button class="maximize" onclick="toggleMaximizeWindow('mi-pc-window')">[]</button>
-            <button class="close" onclick="closeWindow('mi-pc-window')">X</button>
+        <div class="window-content">
+            <p>Contenido de Mensajes...</p>
         </div>
-       
     </div>
-    <div class="window-content">
-        <p>Contenido del Reproductor...</p>
-    </div>
-</div>
 
+    <div id="reproductor" class="window hidden" data-title="Reproductor">
+        <div class="window-header">
+            <h2>Reproductor</h2>
+            <div class="window-controls">
+                <button class="minimize" onclick="minimizeWindow('reproductor')">_</button>
+                <button class="maximize" onclick="toggleMaximizeWindow('reproductor')">[]</button>
+                <button class="close" onclick="closeWindow('reproductor')">X</button>
+            </div>
+        </div>
+        <div class="window-content">
+            <p>Contenido del Reproductor...</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

@@ -23,23 +23,25 @@ function closeWindow(windowId) {
     const windowElement = document.getElementById(windowId);
     windowElement.classList.add('hidden');
     windowElement.classList.remove('maximized'); // Asegura que la ventana no esté maximizada
+    updateTaskbar(); // Actualiza la barra de tareas
 }
 
 // Función para minimizar una ventana
 function minimizeWindow(windowId) {
     const windowElement = document.getElementById(windowId);
     windowElement.classList.add('minimized');
+    windowElement.classList.add('hidden'); // Oculta la ventana
     bringToFront(windowElement);
-    updateTaskbar();
+    updateTaskbar(); // Actualiza la barra de tareas
 }
 
 // Función para restaurar una ventana minimizada
 function restoreWindow(windowId) {
     const windowElement = document.getElementById(windowId);
     windowElement.classList.remove('minimized');
-    windowElement.classList.remove('hidden');
+    windowElement.classList.remove('hidden'); // Muestra la ventana
     bringToFront(windowElement);
-    updateTaskbar();
+    updateTaskbar(); // Actualiza la barra de tareas
 }
 
 // Función para maximizar/restaurar una ventana
@@ -63,6 +65,7 @@ function toggleMaximizeWindow(windowId) {
     }
 
     bringToFront(windowElement);
+    updateTaskbar(); // Actualiza la barra de tareas
 }
 
 // Función para llevar una ventana al frente (actualiza el z-index)
@@ -75,49 +78,40 @@ function bringToFront(element) {
 function updateTaskbar() {
     const minimizedWindows = document.querySelectorAll('.window.minimized');
     const taskbar = document.getElementById('barra-inicio');
-    taskbar.innerHTML = ''; // Limpiar la barra de inicio
-
-    minimizedWindows.forEach(win => {
-        const icon = document.createElement('div');
-        icon.className = 'taskbar-icon';
-        icon.innerHTML = `<p>${win.getAttribute('data-title')}</p>`;
-        icon.onclick = () => restoreWindow(win.id);
-        taskbar.appendChild(icon);
+    const existingButtons = taskbar.querySelectorAll('.minimized-button');
+    
+    // Elimina botones de minimización existentes
+    existingButtons.forEach(button => button.remove());
+    
+    minimizedWindows.forEach(window => {
+        const button = document.createElement('button');
+        button.className = 'minimized-button';
+        button.textContent = window.dataset.title;
+        button.onclick = () => restoreWindow(window.id);
+        taskbar.appendChild(button);
     });
 }
 
-// Función para hacer una ventana arrastrable y manejar la superposición
-function makeDraggable(element) {
-    let isDragging = false;
+// Inicializa las ventanas con eventos de arrastrar y soltar
+document.querySelectorAll('.window').forEach(windowElement => {
     let offsetX, offsetY;
 
-    const header = element.querySelector('.window-header');
+    // Cuando se presiona el ratón sobre la ventana
+    windowElement.querySelector('.window-header').addEventListener('mousedown', (e) => {
+        bringToFront(windowElement);
+        offsetX = e.clientX - windowElement.getBoundingClientRect().left;
+        offsetY = e.clientY - windowElement.getBoundingClientRect().top;
 
-    header.onmousedown = function (e) {
-        isDragging = true;
-        offsetX = e.clientX - element.getBoundingClientRect().left;
-        offsetY = e.clientY - element.getBoundingClientRect().top;
-
-        bringToFront(element);
-
-        document.onmousemove = function (e) {
-            if (isDragging && !element.classList.contains('maximized')) {
-                element.style.left = `${e.clientX - offsetX}px`;
-                element.style.top = `${e.clientY - offsetY}px`;
-            }
+        // Mueve la ventana con el ratón
+        const onMouseMove = (e) => {
+            windowElement.style.left = `${e.clientX - offsetX}px`;
+            windowElement.style.top = `${e.clientY - offsetY}px`;
         };
 
-        document.onmouseup = function () {
-            isDragging = false;
-            document.onmousemove = document.onmouseup = null;
-        };
-    };
-
-    header.ondragstart = function () {
-        return false;
-    };
-}
-
-// Inicializa el comportamiento de arrastrar y superposición en todas las ventanas
-const windows = document.querySelectorAll('.window');
-windows.forEach(makeDraggable);
+        // Detiene el movimiento de la ventana cuando se suelta el ratón
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', () => {
+            document.removeEventListener('mousemove', onMouseMove);
+        }, { once: true });
+    });
+});

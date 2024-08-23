@@ -90,26 +90,33 @@ button:hover {
 }
 
 #barra-inicio {
-    background: rgba(255, 255, 255, 0.1); /* Fondo semitransparente */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque detrás */
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Borde superior difuminado */
-    padding: 5px;
-    position: fixed;
+    position: fixed; /* O absolute si prefieres */
     bottom: 0;
+    left: 0;
     width: 100%;
+    height: 40px; /* Ajusta la altura según sea necesario */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
     display: flex;
     align-items: center;
+    justify-content: start;
+    padding: 0 10px;
+    z-index: 9999; /* Valor alto para asegurar que esté al frente */
 }
 
-
-#boton-inicio {
-    background: #555;
+#barra-inicio button {
+    background: green;
     color: white;
-    padding: 5px; /* Ajustado al tamaño original */
-    border-radius: 5px;
-    margin-left: 10px; /* Botón alineado a la izquierda */
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
 }
+
 
 /* Iconos del escritorio */
 .iconos {
@@ -322,3 +329,4 @@ button:hover {
 .comment-book button:hover {
     background-color: #005bb5;
 }
+
