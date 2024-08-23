@@ -165,7 +165,9 @@ button:hover {
     position: absolute; /* Asegura la posición relativa para el movimiento */
 }
 
-
+.window.resizable {
+    border: 2px solid #3db3a5; /* Puedes ajustar el color y el grosor */
+}
 
 /* Estilo para la barra de título de la ventana */
 .window-header {

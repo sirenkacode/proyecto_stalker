@@ -1,4 +1,5 @@
 let zIndexCounter = 10; // Inicializa el contador del z-index
+let resizing = false; // Variable para rastrear si estamos redimensionando
 
 // Función para verificar la contraseña y mostrar el escritorio
 function checkPassword() {
@@ -98,20 +99,64 @@ document.querySelectorAll('.window').forEach(windowElement => {
 
     // Aplica el evento a toda la ventana en lugar de solo a la barra de título
     windowElement.addEventListener('mousedown', (e) => {
-        bringToFront(windowElement);
-        offsetX = e.clientX - windowElement.getBoundingClientRect().left;
-        offsetY = e.clientY - windowElement.getBoundingClientRect().top;
+        if (!resizing) {
+            bringToFront(windowElement);
+            offsetX = e.clientX - windowElement.getBoundingClientRect().left;
+            offsetY = e.clientY - windowElement.getBoundingClientRect().top;
 
-        // Mueve la ventana con el ratón
-        const onMouseMove = (e) => {
-            windowElement.style.left = `${e.clientX - offsetX}px`;
-            windowElement.style.top = `${e.clientY - offsetY}px`;
-        };
+            // Mueve la ventana con el ratón
+            const onMouseMove = (e) => {
+                windowElement.style.left = `${e.clientX - offsetX}px`;
+                windowElement.style.top = `${e.clientY - offsetY}px`;
+            };
 
-        // Detiene el movimiento de la ventana cuando se suelta el ratón
-        document.addEventListener('mousemove', onMouseMove);
-        document.addEventListener('mouseup', () => {
-            document.removeEventListener('mousemove', onMouseMove);
-        }, { once: true });
+            // Detiene el movimiento de la ventana cuando se suelta el ratón
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', () => {
+                document.removeEventListener('mousemove', onMouseMove);
+            }, { once: true });
+        }
+    });
+
+    // Redimensionar ventana desde los bordes
+    windowElement.addEventListener('mousemove', (e) => {
+        const rect = windowElement.getBoundingClientRect();
+        const offset = 10; // Margen para detectar el borde
+        const isRightEdge = e.clientX >= rect.right - offset && e.clientX <= rect.right;
+        const isBottomEdge = e.clientY >= rect.bottom - offset && e.clientY <= rect.bottom;
+        const isLeftEdge = e.clientX <= rect.left + offset && e.clientX >= rect.left;
+        const isTopEdge = e.clientY <= rect.top + offset && e.clientY >= rect.top;
+
+        windowElement.style.cursor = (isRightEdge || isLeftEdge) && (isTopEdge || isBottomEdge) ? 'nwse-resize' :
+            (isRightEdge || isLeftEdge) ? 'ew-resize' :
+            (isTopEdge || isBottomEdge) ? 'ns-resize' : 'default';
+    });
+
+    windowElement.addEventListener('mousedown', (e) => {
+        const rect = windowElement.getBoundingClientRect();
+        const offset = 10; // Margen para detectar el borde
+        const isRightEdge = e.clientX >= rect.right - offset && e.clientX <= rect.right;
+        const isBottomEdge = e.clientY >= rect.bottom - offset && e.clientY <= rect.bottom;
+
+        if (isRightEdge || isBottomEdge) {
+            resizing = true;
+
+            // Redimensionar con el ratón
+            const onMouseMove = (e) => {
+                if (isRightEdge) {
+                    windowElement.style.width = `${e.clientX - rect.left}px`;
+                }
+                if (isBottomEdge) {
+                    windowElement.style.height = `${e.clientY - rect.top}px`;
+                }
+            };
+
+            // Detener el redimensionamiento
+            document.addEventListener('mousemove', onMouseMove);
+            document.addEventListener('mouseup', () => {
+                document.removeEventListener('mousemove', onMouseMove);
+                resizing = false;
+            }, { once: true });
+        }
     });
 });
