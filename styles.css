@@ -58,7 +58,7 @@ input[type="password"] {
 button {
     padding: 10px 20px;
     border: none;
-    background-color: #4caf50;
+    background-color: #6193f0;
     color: white;
     font-size: 16px;
     border-radius: 5px;
@@ -66,7 +66,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2e436b;
 }
 
 #error-message {
@@ -95,11 +95,10 @@ button:hover {
     left: 0;
     width: 100%;
     height: 40px; /* Ajusta la altura según sea necesario */
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(61, 179, 165, 0.5); /* Color #3db3a5 con mayor opacidad para la barra de inicio */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco con opacidad para la barra */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+    box-shadow: 0 -6px 10px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2); /* Upper glow y sombra */
     color: white;
     display: flex;
     align-items: center;
@@ -152,11 +151,11 @@ button:hover {
 
 /* Estilo de las ventanas emergentes */
 .window {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(15px);
-    border-radius: 10px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(61, 179, 165, 0.3); /* Color #3db3a5 con opacidad para efecto glassmorphism */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde blanco con opacidad para un efecto sutil */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 -10px 15px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.2); /* Upper glow y sombra */
     overflow: hidden;
     width: 60vw;
     height: 60vh;
