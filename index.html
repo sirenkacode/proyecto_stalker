@@ -64,17 +64,25 @@
 
     <div id="papeles" class="window hidden" data-title="Papeles">
         <div class="window-header">
-            <h2>Papeles</h2>
+            Papeles
             <div class="window-controls">
-                <button class="minimize" onclick="minimizeWindow('papeles')">_</button>
-                <button class="maximize" onclick="toggleMaximizeWindow('papeles')">[]</button>
-                <button class="close" onclick="closeWindow('papeles')">X</button>
+                <button onclick="minimizeWindow('papeles')" class="minimize-button">_</button>
+                <button onclick="toggleMaximizeWindow('papeles')" class="maximize-button">[]</button>
+                <button onclick="closeWindow('papeles')" class="close-button">X</button>
             </div>
         </div>
         <div class="window-content">
-            <p>Contenido de Papeles...</p>
+            <div class="folder" onclick="openFolder('fotos')">
+                <img src="carpeta.png" alt="Fotos">
+                <p>Fotos</p>
+            </div>
+            <div class="folder" onclick="openFolder('archivos-notepad')">
+                <img src="carpeta.png" alt="Archivos Notepad">
+                <p>Archivos Notepad</p>
+            </div>
         </div>
     </div>
+    
 
     <div id="explorador" class="window hidden" data-title="Explorador">
         <div class="window-header">

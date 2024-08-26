@@ -330,6 +330,49 @@ button:hover {
 .comment-book button:hover {
     background-color: #005bb5;
 }
+
+
+#papeles .window-title {
+    background-color: #3db3a5; /* Color de la barra de título */
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#papeles .window-controls {
+    display: flex;
+    gap: 5px;
+}
+
+#papeles .window-content {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #ffffff; /* Fondo blanco para el contenido */
+}
+
+.folder {
+    text-align: center;
+    cursor: pointer;
+}
+
+.folder img {
+    width: 60px;
+    height: 60px;
+}
+
+.folder p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #000000;
+}
+
  
 
 /* Contenedor de la animación centrado en la ventana */
@@ -339,11 +382,13 @@ button:hover {
     align-items: center;
     position: absolute;
     padding: 10px;
-    height: 100%;
-    width: 100%;
+    height: calc(100% - 20px); /* Restar el padding vertical (10px arriba y abajo) */
+    width: calc(100% - 20px); /* Restar el padding horizontal (10px a la izquierda y derecha) */
     background-color: #0e0e0e;
     overflow: hidden; /* Evita que los fractales se salgan del contenedor */
+    box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
 }
+
 
 /* Animación de los fractales */
 .fractal {
